@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,a[100];
+    printf("Enter the array size\n");
+    scanf("%d",&n);
+    printf("Enter the array elements\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    int i=0,j=n-1;
+    while(i<=j)
+    {
+        if(a[i]>0 && a[j]>0)
+        {
+            j--;
+        }
+        else if(a[i]>0 && a[j]<0)
+        {
+            int temp;
+            temp=a[i];
+            a[i]=a[j];
+            a[j]=temp;
+            i++;
+            j--;
+        }
+        else if(a[i]<0 && a[j]<0)
+        {
+            j--;
+        }
+        else
+        {
+            i++;
+            j--;
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
